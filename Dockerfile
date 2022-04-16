@@ -4,6 +4,4 @@ RUN curl https://raw.githubusercontent.com/novec-tech/boot.novec.tech/main/custo
 WORKDIR "/home/ipxe/src/"
 RUN ls
 RUN make bin/ipxe.iso EMBED=custom.ipxe
-RUN touch ahoj.txt
-RUN cp ahoj.txt /home/ipxe/.
 RUN curl -X POST https://maker.ifttt.com/trigger/ipxe/with/key/bWOyU612jYytR2KRWmPJMF
