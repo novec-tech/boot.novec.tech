@@ -20,7 +20,7 @@ goto ${custom_choice}
 goto custom_exit
 
 :test1
-echo Let's get IP address ;)
+echo Ahooj !
 dhcp
 
 set base http://tinycorelinux.net/11.x/x86/release/distribution_files
