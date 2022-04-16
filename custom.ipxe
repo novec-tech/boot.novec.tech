@@ -6,6 +6,8 @@
 :custom
 clear custom_choice
 menu This is a Test Menu
+item --gap boot.novec.tech
+item test1 ${space} TinyCore linux
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
@@ -16,6 +18,16 @@ choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
 goto custom_exit
+
+:test1
+set base http://tinycorelinux.net/11.x/x86/release/distribution_files
+
+cpuid --ext 29 && set arch 64 || set arch
+
+kernel ${base}/vmlinuz${arch} initrd=rootfs.gz initrd=modules${arch}.gz
+initrd ${base}/rootfs.gz
+initrd ${base}/modules${arch}.gz
+boot
 
 :option_one
 kernel http://path.to/vmlinuz
