@@ -1,5 +1,6 @@
 FROM jnovec/ipxe-dev:ready
 
-RUN git clone https://github.com/novec-tech/boot.novec.tech/ \
-    && chmod +x boot.novec.tech/download_and_build.sh && boot.novec.tech/download_and_build.sh 
-    
+RUN curl https://raw.githubusercontent.com/novec-tech/boot.novec.tech/main/custom.ipxe > /home/ipxe/src/custom.ipxe \
+    cd /home/ipxe/src/ \
+    make bin/ipxe.iso EMBED=custom.ipxe \
+    cp /home/ipxe/src/bin/ipxe.iso /home/ipxe/ipxe.iso  \
