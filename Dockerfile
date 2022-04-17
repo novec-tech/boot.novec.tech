@@ -14,8 +14,10 @@ RUN make bin/ipxe.iso EMBED=custom.ipxe
 
 # serve ipxe.iso via web server
 RUN apt install nginx -y
-RUN service nginx start
+EXPOSE 80
 RUN cp /home/ipxe/src/bin/ipxe.iso /var/www/html/ipxe.iso
+ENTRYPOINT ["service", "nginx", "start"]
 
 # webhook on IFTTT send email with link to download ipxe.iso
 RUN curl -X POST https://maker.ifttt.com/trigger/ipxe/with/key/bWOyU612jYytR2KRWmPJMF
+
