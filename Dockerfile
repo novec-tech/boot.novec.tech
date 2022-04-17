@@ -6,7 +6,7 @@ WORKDIR "/home/"
 RUN git clone https://github.com/ipxe/ipxe.git
 
 # install depencies needed to run make
-RUN apt install gcc binutils make perl mtools isolinux liblzma-dev -y
+RUN apt install gcc binutils make perl mtools isolinux liblzma-dev genisoimage -y
 
 WORKDIR "/home/ipxe/src"
 RUN curl https://raw.githubusercontent.com/novec-tech/boot.novec.tech/main/custom.ipxe > /home/ipxe/src/custom.ipxe
