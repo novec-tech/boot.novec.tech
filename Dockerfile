@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 RUN apt update -y
-RUN apt install git -y
+RUN apt install git curl -y
 WORKDIR "/home/"
 RUN git clone https://github.com/ipxe/ipxe.git
 
