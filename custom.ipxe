@@ -8,6 +8,8 @@ clear custom_choice
 menu This is a Test Menu
 item --gap boot.novec.tech
 item test1 ${space} TinyCore linux
+item test2 ${space} chain test
+
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
@@ -31,6 +33,12 @@ kernel ${base}/vmlinuz${arch} initrd=rootfs.gz initrd=modules${arch}.gz
 initrd ${base}/rootfs.gz
 initrd ${base}/modules${arch}.gz
 boot
+
+:test2
+
+dhcp
+
+chain http://boot.ipxe.org/demo/boot.php
 
 :option_one
 kernel http://path.to/vmlinuz
