@@ -8,7 +8,7 @@ clear custom_choice
 menu This is a Test Menu
 item --gap boot.novec.tech
 item test1 ${space} TinyCore linux
-item test2 ${space} chain test
+item test2 ${space} chain
 
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
@@ -22,7 +22,7 @@ goto ${custom_choice}
 goto custom_exit
 
 :test1
-echo Ahooj !
+
 dhcp
 
 set base http://tinycorelinux.net/11.x/x86/release/distribution_files
