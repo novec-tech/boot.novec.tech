@@ -8,7 +8,8 @@ clear custom_choice
 menu This is a Test Menu
 item --gap boot.novec.tech
 item test1 ${space} TinyCore linux
-item test2 ${space} chain
+item test2 ${space} chain to ipxe
+item test3 ${space} chain to netboot
 
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
@@ -39,6 +40,12 @@ boot
 dhcp
 
 chain http://boot.ipxe.org/demo/boot.php
+
+:test3
+
+dhcp
+
+chain http://boot.netboot.xyz/menu.ipxe
 
 :option_one
 kernel http://path.to/vmlinuz
