@@ -11,5 +11,11 @@ RUN apt install gcc binutils make perl mtools isolinux liblzma-dev genisoimage -
 WORKDIR "/home/ipxe/src"
 RUN curl https://raw.githubusercontent.com/novec-tech/boot.novec.tech/main/custom.ipxe > /home/ipxe/src/custom.ipxe
 RUN make bin/ipxe.iso EMBED=custom.ipxe
-RUN cp /home/ipxe/src/bin/ipxe.iso /tmp/ipxe.iso
+
+# serve ipxe.iso via web server
+RUN apt install nginx -y
+RUN service nginx start
+RUN cp /home/ipxe/src/bin/ipxe.iso /var/www/html/ipxe.iso
+
+# webhook on IFTTT send email with link to download ipxe.iso
 RUN curl -X POST https://maker.ifttt.com/trigger/ipxe/with/key/bWOyU612jYytR2KRWmPJMF
