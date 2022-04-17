@@ -14,7 +14,7 @@ RUN make bin/ipxe.iso EMBED=custom.ipxe
 
 # serve ipxe.iso via web server
 RUN apt install nginx -y
-CMD ["service", "nginx", "start"]
+CMD /usr/sbin/nginx -g "daemon off;"
 RUN cp /home/ipxe/src/bin/ipxe.iso /var/www/html/ipxe.iso
 EXPOSE 80
 
