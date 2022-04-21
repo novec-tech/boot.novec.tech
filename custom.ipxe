@@ -11,7 +11,6 @@ item test1 ${space} TinyCore linux
 item test2 ${space} chain to ipxe
 item test3 ${space} chain to netboot
 item test4 ${space} Ventoy testing
-
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
@@ -49,6 +48,11 @@ dhcp
 chain http://boot.netboot.xyz/menu.ipxe
 
 :test4
+
+dhcp
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd https://boot.ipxe.org/ipxe.iso
+boot || goto custom_exit
 
 :option_one
 kernel http://path.to/vmlinuz
