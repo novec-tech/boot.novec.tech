@@ -15,7 +15,7 @@ RUN make bin/ipxe.iso EMBED=custom.ipxe
 # serve ipxe.iso via web server
 RUN apt install nginx -y
 CMD /usr/sbin/nginx -g "daemon off;"
-RUN cp /home/ipxe/src/bin/ipxe.iso /var/www/html/ipxe.iso
+RUN cp /home/ipxe/src/bin/ipxe.iso /usr/share/nginx/html/ipxe.iso
 EXPOSE 80
 
 # webhook on IFTTT send email with link to download ipxe.iso
