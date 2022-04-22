@@ -22,6 +22,3 @@ RUN apt-get install apache2 -y
 #now start the server
 CMD ["apachectl", "-D", "FOREGROUND"]
 RUN cp /home/ipxe/src/bin/ipxe.iso /var/www/html/ipxe.iso
-
-# webhook on IFTTT send email with link to download ipxe.iso
-RUN curl -X POST https://maker.ifttt.com/trigger/ipxe/with/key/bWOyU612jYytR2KRWmPJMF
