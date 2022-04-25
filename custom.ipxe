@@ -52,9 +52,9 @@ chain http://boot.netboot.xyz/menu.ipxe
 :test4
 
 dhcp
-kernel https://boot.netboot.xyz/memdisk raw iso
-initrd https://boot.ipxe.org/ipxe.iso
-boot || goto custom_exit
+
+# how to boot from iso ?
+
 
 :option_one
 kernel http://path.to/vmlinuz
