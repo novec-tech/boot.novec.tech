@@ -7,7 +7,7 @@
 
 :custom
 clear custom_choice
-menu This is a Test Menu
+menu boot.novec.tech
 item --gap boot.novec.tech
 item test1 ${space} TinyCore linux
 item test2 ${space} chain to ipxe
